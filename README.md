@@ -14,3 +14,8 @@
     * Stacks and Queues:
     * Caching:
     * Optimization:
+
+### Tasks
+    `Hash Table`
+        We need to create a Hash Table in order to store the names
+        of the contacts based on the first letter in their name
