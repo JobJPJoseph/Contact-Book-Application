@@ -45,13 +45,30 @@ describe('Hash Table', function () {
 
             let result = hashtable.hash("a");
             expect(count === result).to.be.true;
-
         });
 
     });
 
     describe('hashMod', function () {
         // uses the result from the hash and divides it by the length of data
+
+        it('should return the result of hashing the argument by the data length', function () {
+            let char = "a";
+            let count = 0;
+
+            for (let i = 0; i < char.length; i++) {
+                count += char.charCodeAt(i);
+            }
+
+            let hashedVal = count % hashtable.data.length;
+            let result = hashtable.hashMod("a");
+            expect(hashedVal === result).to.be.true;
+        });
+
+    });
+
+    describe('', function () {
+
     });
 
 });
