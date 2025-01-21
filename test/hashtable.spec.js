@@ -32,4 +32,26 @@ describe('Hash Table', function () {
 
     });
 
+    describe('hash', function () {
+        // changes value into a string and iterates thru it.
+
+        it('should return the decimal value of the argument', function () {
+            let char = "a";
+            let count = 0;
+
+            for (let i = 0; i < char.length; i++) {
+                count += char.charCodeAt(i);
+            }
+
+            let result = hashtable.hash("a");
+            expect(count === result).to.be.true;
+
+        });
+
+    });
+
+    describe('hashMod', function () {
+        // uses the result from the hash and divides it by the length of data
+    });
+
 });
