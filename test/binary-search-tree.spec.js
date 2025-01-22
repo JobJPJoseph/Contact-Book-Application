@@ -3,6 +3,9 @@ const { ContactSearchTreeNode, ContactSearchTree } = require('../lib/binary-sear
 
 const chai = require('chai');
 const expect = chai.expect;
+const spies = require('chai-spies');
+chai.use(spies);
+
 
 describe('Contact Search Tree Node', function () {
 
@@ -15,7 +18,7 @@ describe('Contact Search Tree Node', function () {
 
     beforeEach(function () {
         bstNodeNoArg = new ContactSearchTreeNode();
-        bstNode = new ContactSearchTreeNode("a");
+        bstNode = new ContactSearchTreeNode("a", '239-503-1856', 'jp@gmail.com');
 
     });
 
@@ -24,7 +27,9 @@ describe('Contact Search Tree Node', function () {
         context('No argument', function () {
 
             it('should set it to undefined if no argument is sent', function () {
-                expect(bstNodeNoArg.value).to.equal(undefined);
+                expect(bstNodeNoArg.name).to.equal(undefined);
+                expect(bstNodeNoArg.contact).to.equal(undefined);
+                expect(bstNodeNoArg.email).to.equal(undefined);
             });
 
         });
@@ -32,7 +37,9 @@ describe('Contact Search Tree Node', function () {
         context('With argument', function () {
 
             it('should accept a single argument and set the to the argument', function () {
-                expect(bstNode.value).to.equal('a');
+                expect(bstNode.name).to.equal('a');
+                expect(bstNode.contact).to.equal('239-503-1856');
+                expect(bstNode.email).to.equal('jp@gmail.com');
             });
 
         });
@@ -49,24 +56,38 @@ describe('Contact Search Tree Node', function () {
 
 });
 
-// describe('Binary Search Tree', function () {
+describe('Binary Search Tree', function () {
 
-//     it('should create a class called ContactSearchTree', function () {
-//         expect(ContactSearchTree).to.exist;
-//     });
+    it('should create a class called ContactSearchTree', function () {
+        expect(ContactSearchTree).to.exist;
+    });
 
-//     let bst = new ContactSearchTree();
+    let bst;
 
-//     describe('constructor', function () {
+    beforeEach(function () {
+        bst = new ContactSearchTree();
+    });
 
-//         it('should initialize the property called this.root to null', function () {
-//             expect(bst.root).to.equal(null);
-//         });
+    describe('constructor', function () {
 
-//     });
+        it('should initialize the property called this.root to null', function () {
+            expect(bst.root).to.equal(null);
+        });
 
-//     describe('', function () {
+    });
 
-//     });
+    describe('insert', function () {
 
-// });
+        let names = ['Sebastion', 'Sebe', 'Clare', 'Klare', 'Josh', "John"]; // :6
+
+        it('should accept a single argument sort the value based on combined decimal value', function () {
+            bst.insert(names[0], '239-503-1856', 'jp@gmail.com');
+
+            expect(bst.root.name).to.equal(names[0]);
+            expect(bst.root.contact).to.equal('239-503-1856');
+            expect(bst.root.email).to.equal('jp@gmail.com');
+        });
+
+    });
+
+});
