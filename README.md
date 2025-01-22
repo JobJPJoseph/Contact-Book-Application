@@ -19,3 +19,5 @@
     `Hash Table`
         We need to create a Hash Table in order to store the names
         of the contacts based on the first letter in their name
+    `Binary Search Tree`
+        We need to create a BST for the buckets of the HashTable so sort and store the names.
