@@ -14,3 +14,6 @@
 
     `hashMod`
         The method should divide the decimal value of the argument based on the length of `this.data`
+
+    `insert`
+        The method will take a single argument and hash the value.
