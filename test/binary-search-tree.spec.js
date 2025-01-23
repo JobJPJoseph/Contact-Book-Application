@@ -78,7 +78,7 @@ describe('Binary Search Tree', function () {
 
     describe('insert', function () {
 
-        let names = ['Sebastion', 'Sebe', 'Clare', 'Klare', 'Josh', "John"]; // :6
+        let names = ['111115', '1113', '11111117']; // :3
 
         it('should accept a single argument sort the value based on combined decimal value', function () {
             bst.insert(names[0], '239-503-1856', 'jp@gmail.com');
@@ -86,6 +86,30 @@ describe('Binary Search Tree', function () {
             expect(bst.root.name).to.equal(names[0]);
             expect(bst.root.contact).to.equal('239-503-1856');
             expect(bst.root.email).to.equal('jp@gmail.com');
+        });
+
+        context('When contact is smaller than root', function () {
+
+            it('should set the node to the left of the root.', function () {
+                bst.insert(names[0], '239-503-1856', 'jp@gmail.com');
+                bst.insert(names[1], '239-503-1856', 'jp@gmail.com');
+
+                let node = bst.root;
+                expect(node.left.name).to.equal(names[1]);
+            });
+
+        });
+
+        context('When contact is larger than root', function () {
+
+            it('should set the node to the right of the root.', function () {
+                bst.insert(names[0], '239-503-1856', 'jp@gmail.com');
+                bst.insert(names[2], '239-503-1856', 'jp@gmail.com');
+
+                let node = bst.root;
+                expect(node.right.name).to.equal(names[2]);
+            });
+
         });
 
     });
