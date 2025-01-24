@@ -63,6 +63,8 @@ describe('Binary Search Tree', function () {
     });
 
     let bst;
+    let names = ['111115', '1113', '11111117']; // :3
+
 
     beforeEach(function () {
         bst = new ContactSearchTree();
@@ -77,8 +79,6 @@ describe('Binary Search Tree', function () {
     });
 
     describe('insert', function () {
-
-        let names = ['111115', '1113', '11111117']; // :3
 
         it('should accept a single argument sort the value based on combined decimal value', function () {
             bst.insert(names[0], '239-503-1856', 'jp@gmail.com');
@@ -111,6 +111,113 @@ describe('Binary Search Tree', function () {
             });
 
         });
+
+    });
+
+    describe('searchByContext', function () {
+
+        // it('should accept a single argument that represents a phone number', function () {
+        //     let cpnSpy = chai.spy.on(bst, 'searchByContext');
+
+        //     bst.searchByContext('239-503-1859');
+
+        //     expect(cpnSpy).to.have.been.called.with('239-503-1859');
+
+        //     chai.spy.restore(bst, 'searchByContext');
+        // });
+
+        context('Context: contact', function () {
+            context('When this not the correct tree', function () {
+
+                it('should return false when no node is found', function () {
+                    bst.insert(names[0], '239-503-1856', 'jp@gmail.com');
+                    bst.insert(names[1], '239-503-1857', 'jp@gmail.com');
+                    bst.insert(names[2], '239-503-1858', 'jp@gmail.com');
+
+                    let expected = bst.searchByContext('239-503-1859');
+
+                    expect(expected).to.equal(null);
+                });
+
+            });
+
+            context('When this is the correct tree', function () {
+
+                it('should return the node when found', function () {
+                    bst.insert(names[0], '239-503-1856', 'jp@gmail.com');
+                    bst.insert(names[1], '239-503-1857', 'jp@gmail.com');
+                    bst.insert(names[2], '239-503-1858', 'jp@gmail.com');
+
+                    let expected = bst.searchByContext('239-503-1858');
+
+                    expect(expected.contact).to.equal('239-503-1858');
+                });
+
+            });
+        });
+
+        context('Context: email', function () {
+            context('When this not the correct tree', function () {
+
+                it('should return null when no node is found', function () {
+                    bst.insert(names[0], '239-503-1856', 'jp1@gmail.com');
+                    bst.insert(names[1], '239-503-1857', 'jp2@gmail.com');
+                    bst.insert(names[2], '239-503-1858', 'jp3@gmail.com');
+
+                    let expected = bst.searchByContext('111111118');
+
+                    expect(expected).to.equal(null);
+                });
+
+            });
+
+            context('When this is the correct tree', function () {
+
+                it('should return the node when found', function () {
+                    bst.insert(names[0], '239-503-1856', 'jp1@gmail.com');
+                    bst.insert(names[1], '239-503-1857', 'jp2@gmail.com');
+                    bst.insert(names[2], '239-503-1858', 'jp3@gmail.com');
+
+                    let expected = bst.searchByContext('jp3@gmail.com');
+
+                    expect(expected.email).to.equal('jp3@gmail.com');
+                });
+
+            });
+
+        });
+
+        context('Context: name', function () {
+            context('When this not the correct tree', function () {
+
+                it('should return false when no node is found', function () {
+                    bst.insert(names[0], '239-503-1856', 'jp1@gmail.com');
+                    bst.insert(names[1], '239-503-1857', 'jp2@gmail.com');
+                    bst.insert(names[2], '239-503-1858', 'jp3@gmail.com');
+
+                    let expected = bst.searchByContext('11114');
+
+                    expect(expected).to.equal(null);
+                });
+
+            });
+
+            context('When this is the correct tree', function () {
+
+                it('should return the node when found', function () {
+                    bst.insert(names[0], '239-503-1856', 'jp1@gmail.com');
+                    bst.insert(names[1], '239-503-1857', 'jp2@gmail.com');
+                    bst.insert(names[2], '239-503-1858', 'jp3@gmail.com');
+
+                    let expected = bst.searchByContext(names[2]);
+
+                    expect(expected.name).to.equal(names[2]);
+                });
+
+            });
+
+        });
+
 
     });
 
