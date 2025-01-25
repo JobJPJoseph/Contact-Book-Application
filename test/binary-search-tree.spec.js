@@ -66,6 +66,14 @@ describe('Binary Search Tree', function () {
     let bstNoNodes
     let names = ['111115', '1113', '11111117', '11114', '112', '111111118', '1111116']; // :7
 
+    /*
+                5
+              /   \
+             3     7
+            / \   / \
+           2   4 6   8
+    */
+
 
     beforeEach(function () {
         bstNoNodes = new ContactSearchTree();
@@ -195,49 +203,64 @@ describe('Binary Search Tree', function () {
 
     });
 
-    // describe('deleteByContext', function () {
+    describe('printContactTree', function () {
 
-    //     context('Context: contact', function () {
+        it ('it should console.log the node in-order', function () {
+            let consoleSpy = chai.spy.on(console, 'log');
 
-    //         context('When the node is not found', function () {
-    //             bst.insert(names[0], '239-503-1856', 'jp1@gmail.com');
-    //             bst.insert(names[1], '239-503-1857', 'jp2@gmail.com');
-    //             bst.insert(names[2], '239-503-1858', 'jp3@gmail.com');
+            bst.printContactTree();
 
-    //             bst.deleteByContext();
-    //         });
+            expect(consoleSpy).on.nth(4).be.called.with(names[0]);
+            expect(consoleSpy).on.nth(2).be.called.with(names[1]);
+            expect(consoleSpy).on.nth(6).be.called.with(names[2]);
+            expect(consoleSpy).on.nth(3).be.called.with(names[3]);
+            expect(consoleSpy).on.nth(1).be.called.with(names[4]);
+            expect(consoleSpy).on.nth(7).be.called.with(names[5]);
+            expect(consoleSpy).on.nth(5).be.called.with(names[6]);
 
-    //         context('When the node is found', function () {
+        });
 
-    //         });
+    });
 
-    //     });
+    describe('deleteByContext', function () {
 
-    //     context('Context: email', function () {
+        context('Context: contact', function () {
 
-    //         context('When the node is not found', function () {
+            context('When the node is not found', function () {
 
-    //         });
+            });
 
-    //         context('When the node is found', function () {
+            context('When the node is found', function () {
 
-    //         });
+            });
 
-    //     });
+        });
 
-    //     context('Context: name', function () {
+        context('Context: email', function () {
 
-    //         context('When the node is not found', function () {
+            context('When the node is not found', function () {
 
-    //         });
+            });
 
-    //         context('When the node is found', function () {
+            context('When the node is found', function () {
 
-    //         });
+            });
 
-    //     });
+        });
+
+        context('Context: name', function () {
+
+            context('When the node is not found', function () {
+
+            });
+
+            context('When the node is found', function () {
+
+            });
+
+        });
 
 
-    // });
+    });
 
 });
