@@ -301,13 +301,42 @@ describe('Binary Search Tree', function () {
 
                 context('No child', function () {
 
+                    it('should set the node to null', function () {
+                        bst.deleteByContext(names[3]);
+                        let parent = bst.searchByContext(names[1]);
+
+                        expect(parent.left.name).to.equal(names[4]);
+                        expect(parent.right).to.equal(null);
+                    });
+
                 });
 
                 context('Two children', function () {
 
+                    it('should replace node with the in-order predesessor or successor', function () {
+                        bst.deleteByContext(names[0]);
+                        expect(bst.root.name).to.equal(names[3]);
+                    });
+
                 });
 
                 context('One child', function () {
+
+                    it('should replace target with the valid child', function () {
+                        bst.deleteByContext(names[2]);
+                        let midCheck = bst.searchByContext(names[6]);
+                        expect(midCheck.name).to.equal(names[6]);
+                        expect(midCheck.right.name).to.equal(names[5]);
+                        expect(midCheck.left).to.equal(null);
+
+
+
+                        bst.deleteByContext(names[6]);
+                        let node = bst.searchByContext(names[5]);
+                        expect(node.left).to.equal(null);
+                        expect(node.right).to.equal(null);
+                        expect(bst.root.right.name).to.equal(names[5]);
+                    });
 
                 });
 
