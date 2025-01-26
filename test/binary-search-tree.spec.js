@@ -228,9 +228,26 @@ describe('Binary Search Tree', function () {
 
             context('When the node is not found', function () {
 
+                it('the tree should remain unchanged null', function () {
+                    bst.deleteByContext('239-503-1892');
+
+                    for (let i = 0; i < names.length; i++) {
+                        expect(bst.searchByContext(names[i]).name).to.equal(names[i]);
+                    }
+
+                });
+
             });
 
             context('When the node is found', function () {
+
+                it('should set the property to null', function () {
+                    bst.deleteByContext('239-503-1856');
+                    let node = bst.searchByContext(names[0]);
+
+                    expect(node.name).to.equal(names[0]);
+                    expect(node.contact).to.equal(null);
+                });
 
             });
 
@@ -240,9 +257,26 @@ describe('Binary Search Tree', function () {
 
             context('When the node is not found', function () {
 
+                it('the tree should remain unchanged null', function () {
+                    bst.deleteByContext('239-503-1892');
+
+                    for (let i = 0; i < names.length; i++) {
+                        expect(bst.searchByContext(names[i]).name).to.equal(names[i]);
+                    }
+
+                });
+
             });
 
             context('When the node is found', function () {
+
+                it('should set the property to null', function () {
+                    bst.deleteByContext('239-503-1856');
+                    let node = bst.searchByContext(names[0]);
+
+                    expect(node.name).to.equal(names[0]);
+                    expect(node.email).to.equal(null);
+                });
 
             });
 
@@ -252,9 +286,30 @@ describe('Binary Search Tree', function () {
 
             context('When the node is not found', function () {
 
+                it('the tree should remain unchanged null', function () {
+                    bst.deleteByContext('239-503-1892');
+
+                    for (let i = 0; i < names.length; i++) {
+                        expect(bst.searchByContext(names[i]).name).to.equal(names[i]);
+                    }
+
+                });
+
             });
 
             context('When the node is found', function () {
+
+                context('No child', function () {
+
+                });
+
+                context('Two children', function () {
+
+                });
+
+                context('One child', function () {
+
+                });
 
             });
 
