@@ -271,7 +271,7 @@ describe('Binary Search Tree', function () {
             context('When the node is found', function () {
 
                 it('should set the property to null', function () {
-                    bst.deleteByContext('239-503-1856');
+                    bst.deleteByContext('jp1@gmail.com');
                     let node = bst.searchByContext(names[0]);
 
                     expect(node.name).to.equal(names[0]);
