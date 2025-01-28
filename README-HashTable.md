@@ -18,6 +18,8 @@
     `insert`
        The method should accept a single argument that will represent a name. We need to hash the first character of the string. This will be used to sort the name into the buckets. Each bucket is a Binary Search Tree. From there we will call insert in the context of the BST.
 
+       Based on the actual phone contacts. It is lowercase by default printed with the first character capitilized.
+
     `findContactByName`
         The method should accept a single argument that will represent a name. From here we could hash the first character to find the bucket it belongs to. Then traverse the tree to find the node.
 
