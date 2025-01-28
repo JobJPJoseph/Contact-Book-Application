@@ -1,4 +1,5 @@
 const { HashTable } = require('../lib/hashtable');
+const { ContactSearchTree } = require('../lib/binary-search-tree');
 
 const chai = require('chai');
 const expect = chai.expect;
@@ -67,7 +68,37 @@ describe('Hash Table', function () {
 
     });
 
-    describe('', function () {
+    describe('insert', function () {
+
+        context('When the bucket is empty', function () {
+
+            it('should insert the name into the bucket', function () {
+                let str = 'Job';
+                let hashedChar = str.toLowerCase().charCodeAt(0);
+
+                hashtable.insert(str, '239-503-1856','jp@gmail.com');
+
+                let idx = hashedChar % hashtable.data.length;
+
+                expect(hashtable.data[idx].root.name).to.equal(str);
+            });
+
+        });
+
+        context('When the bucket is not empty', function () {
+
+            it('should insert the name and sort the name into the bucket', function () {
+                let str = 'Job';
+                hashtable.insert(str, '239-503-1856','jp@gmail.com');
+
+                let str1 = 'Josh';
+                let hashedChar1 = str1.toLowerCase().charCodeAt(0);
+                hashtable.insert(str1, '239-503-1857','jp2@gmail.com');
+                let idx1 = hashedChar1 % hashtable.data.length;
+                expect(hashtable.data[idx1].root.right.name).to.equal(str1);
+            });
+
+        });
 
     });
 
