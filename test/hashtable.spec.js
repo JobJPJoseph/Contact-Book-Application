@@ -82,6 +82,12 @@ describe('Hash Table', function () {
                 expect(hashtable.data[idx].root.name).to.equal(str);
             });
 
+            it('should increment the length property for the instance', function () {
+                let str = 'Job';
+                hashtable.insert(str, '239-503-1856','jp@gmail.com');
+                expect(hashtable.length).to.equal(1);
+            });
+
         });
 
         context('When the bucket is not empty', function () {
