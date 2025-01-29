@@ -51,7 +51,6 @@ describe('Hash Table', function () {
     });
 
     describe('hashMod', function () {
-        // uses the result from the hash and divides it by the length of data
 
         it('should return the result of hashing the argument by the data length', function () {
             let char = "a";
@@ -101,5 +100,72 @@ describe('Hash Table', function () {
         });
 
     });
+
+    describe('collisions', function () {
+
+        context('No collision', function () {
+
+            it('should insert the node into the Hash Table as regularly', function () {
+                hashtable.insert('Job', '239-503-1856', 'jp1@gmail.com');
+                hashtable.insert('Isha', '239-503-1857', 'jp2@gmail.com');
+
+                let idx1 = "J".toLowerCase().charCodeAt(0) % hashtable.data.length;
+                let idx2 = "I".toLowerCase().charCodeAt(0) % hashtable.data.length;
+
+                console.log(hashtable.data);
+
+                expect(hashtable.data[idx1].root.name).equal('Job');
+                expect(hashtable.data[idx1].root.left).equal(null);
+                expect(hashtable.data[idx1].root.right).equal(null);
+
+                expect(hashtable.data[idx2].root.name).equal('Isha');
+                expect(hashtable.data[idx2].root.left).equal(null);
+                expect(hashtable.data[idx2].root.right).equal(null);
+            });
+
+        });
+
+        context('With collision', function () {
+
+            it('should continuely check the next index if its empty and insert the node', function () {
+                hashtable.insert('Aisha', '239-503-1856', 'jp1@gmail.com');
+                hashtable.insert('Isha', '239-503-1857', 'jp2@gmail.com');
+
+                let idx1 = "A".toLowerCase().charCodeAt(0) % hashtable.data.length;
+                // let idx2 = "I".toLowerCase().charCodeAt(0) % hashtable.data.length;
+
+                console.log(hashtable.data)
+
+                expect(hashtable.data[idx1].root.name).equal('Aisha');
+                expect(hashtable.data[idx1].root.left).equal(null);
+                expect(hashtable.data[idx1].root.right).equal(null);
+
+                expect(hashtable.data[idx1 + 1].root.name).equal('Isha');
+                expect(hashtable.data[idx1 + 1].root.left).equal(null);
+                expect(hashtable.data[idx1 + 1].root.right).equal(null);
+            });
+
+        });
+
+    });
+
+    // let contactTable;
+
+    // beforeEach(function () {
+    //     contactTable = new HashTable();
+    //     contactTable.insert('')
+    // });
+
+    // describe('resize', function () {
+
+    //     context('When the size of the hashtable exceeds 70%', function () {
+
+    //         it('should reallocate the trees to a new array with a length that is double its previous', function () {
+
+    //         });
+
+    //     });
+
+    // });
 
 });

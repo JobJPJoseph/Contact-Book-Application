@@ -20,6 +20,12 @@
 
        Based on the actual phone contacts. It is lowercase by default printed with the first character capitilized.
 
+    `collisions`
+        The method should accept an index from hashing the name and the node to insert into the table. The goal for this method is iterate thru `this.data` in a circlular fasion. Why, because to find an empty spot in the array to insert the node.
+
+    `resize`
+        The method should create a new array where the length of the array is double in length of the `this.data`. From there it should re-hash the root's of the tree.
+
     `findContactByName`
         The method should accept a single argument that will represent a name. From here we could hash the first character to find the bucket it belongs to. Then traverse the tree to find the node.
 
