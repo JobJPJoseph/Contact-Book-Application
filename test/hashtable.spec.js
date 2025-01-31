@@ -31,6 +31,10 @@ describe('Hash Table', function () {
             expect(hashtable.load).to.equal(0.7);
         });
 
+        it('should set a property called size the represent the length of this.data', function () {
+            expect(hashtable.size).to.equal(8);
+        });
+
     });
 
     describe('hash', function () {
@@ -118,8 +122,6 @@ describe('Hash Table', function () {
                 let idx1 = "J".toLowerCase().charCodeAt(0) % hashtable.data.length;
                 let idx2 = "I".toLowerCase().charCodeAt(0) % hashtable.data.length;
 
-                console.log(hashtable.data);
-
                 expect(hashtable.data[idx1].root.name).equal('Job');
                 expect(hashtable.data[idx1].root.left).equal(null);
                 expect(hashtable.data[idx1].root.right).equal(null);
@@ -138,8 +140,6 @@ describe('Hash Table', function () {
                 hashtable.insert('Isha', '239-503-1857', 'jp2@gmail.com');
 
                 let idx1 = "A".toLowerCase().charCodeAt(0) % hashtable.data.length;
-
-                console.log(hashtable.data)
 
                 expect(hashtable.data[idx1].root.name).equal('Aisha');
                 expect(hashtable.data[idx1].root.left).equal(null);
@@ -163,6 +163,8 @@ describe('Hash Table', function () {
         contactTable.insert('Carson', '582-145-9632', 'carson@gmail.com');
         contactTable.insert('Dolton', '621-525-5874', 'dolton@gmail.com');
         contactTable.insert('Easton', '252-142-6324', 'easton@gmail.com');
+        contactTable.insert('Fikerton', '238-414-2589', 'fikerton@gmail.com');
+
     });
 
     describe('resize', function () {
@@ -170,15 +172,14 @@ describe('Hash Table', function () {
         context('When the size of the hashtable exceeds 70%', function () {
 
             it('should reallocate the trees to a new array with a length that is double its previous', function () {
-                console.log(contactTable.data)
+                contactTable.insert('Ian', '257-962-1475', 'ian@gmail.com');
 
-                contactTable.insert('Fikerton', '238-414-2589', 'fikerton@gmail.com');
                 expect(contactTable.data.length).to.equal(16);
-                expect(contactTable.length).to.equal(6);
+                expect(contactTable.length).to.equal(7);
                 expect(contactTable.data[0]).to.equal(null);
-                expect(contactTable.data[1].name).to.equal("Alaiya");
-                expect(contactTable.data[6].name).to.equal("Fikerton");
-                expect(contactTable.data[15]).to.equal(null);
+                expect(contactTable.data[1].root.name).to.equal("Alaiya");
+                expect(contactTable.data[7].root.name).to.equal("Ian");
+                expect(contactTable.data[14]).to.equal(null);
             });
 
         });
