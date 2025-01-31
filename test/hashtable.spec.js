@@ -159,11 +159,35 @@ describe('Hash Table', function () {
     beforeEach(function () {
         contactTable = new HashTable();
         contactTable.insert('Alaiya', '139-256-1253', 'alaiya@gmail.com');
+        contactTable.insert('Alaiy', '139-256-1254', 'alaiy@gmail.com');
+        contactTable.insert('Alaiyas', '139-256-1255', 'alaiyas@gmail.com');
+
+
         contactTable.insert('Biscuit', '582-552-1258', 'biscuit@gmail.com');
+        contactTable.insert('Biscui', '582-552-1257', 'biscui@gmail.com');
+        contactTable.insert('Biscuits', '582-552-1259', 'biscuits@gmail.com');
+
+
         contactTable.insert('Carson', '582-145-9632', 'carson@gmail.com');
+        contactTable.insert('Car', '582-145-9631', 'car@gmail.com');
+        contactTable.insert('Carsons', '582-145-9633', 'carsons@gmail.com');
+
+
+
         contactTable.insert('Dolton', '621-525-5874', 'dolton@gmail.com');
+        contactTable.insert('Dolt', '621-525-5873', 'dolt@gmail.com');
+        contactTable.insert('Doltons', '621-525-5875', 'doltons@gmail.com');
+
+
         contactTable.insert('Easton', '252-142-6324', 'easton@gmail.com');
+        contactTable.insert('East', '252-142-6323', 'east@gmail.com');
+        contactTable.insert('Eastons', '252-142-6325', 'eastons@gmail.com');
+
+
         contactTable.insert('Fikerton', '238-414-2589', 'fikerton@gmail.com');
+        contactTable.insert('Fikert', '238-414-2587', 'fikert@gmail.com');
+        contactTable.insert('Fikertons', '238-414-2588', 'fikertons@gmail.com');
+
 
     });
 
@@ -178,10 +202,54 @@ describe('Hash Table', function () {
                 expect(contactTable.length).to.equal(7);
                 expect(contactTable.data[0]).to.equal(null);
                 expect(contactTable.data[1].root.name).to.equal("Alaiya");
-                expect(contactTable.data[7].root.name).to.equal("Ian");
+                expect(contactTable.data[9].root.name).to.equal("Ian");
                 expect(contactTable.data[14]).to.equal(null);
             });
 
+        });
+
+    });
+
+    describe('findContactByNumber', function () {
+
+        it('should return null when target is nowhere to be found', function () {
+            let node = contactTable.findContactByNumber('582-552-125926');
+            expect(node).to.equal(null);
+        });
+
+        it('should traverse though each bucket until we find the target', function () {
+            let node = contactTable.findContactByNumber('582-552-1259');
+            expect(node.name).to.equal('Biscuits');
+            expect(node.contact).to.equal('582-552-1259');
+
+        });
+
+    });
+
+    describe('findContactByEmail', function () {
+
+        it('should return null when target is nowhere to be found', function () {
+            let node = contactTable.findContactByEmail("dolts@gmail.com");
+            expect(node).to.equal(null);
+        });
+
+        it('should traverse though each bucket until we find the target', function () {
+            let node = contactTable.findContactByEmail("dolt@gmail.com");
+            expect(node.email).to.equal('dolt@gmail.com');
+        });
+
+    });
+
+    describe('findContactByName', function () {
+
+        it('should return null when target is nowhere to be found', function () {
+            let node = contactTable.findContactByEmail("Job");
+            expect(node).to.equal(null);
+        });
+
+        it('should traverse though each bucket until we find the target', function () {
+            let node = contactTable.findContactByName("Eastons");
+            expect(node.name).to.equal('Eastons');
         });
 
     });
