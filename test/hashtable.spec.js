@@ -138,7 +138,6 @@ describe('Hash Table', function () {
                 hashtable.insert('Isha', '239-503-1857', 'jp2@gmail.com');
 
                 let idx1 = "A".toLowerCase().charCodeAt(0) % hashtable.data.length;
-                // let idx2 = "I".toLowerCase().charCodeAt(0) % hashtable.data.length;
 
                 console.log(hashtable.data)
 
@@ -155,23 +154,35 @@ describe('Hash Table', function () {
 
     });
 
-    // let contactTable;
+    let contactTable;
 
-    // beforeEach(function () {
-    //     contactTable = new HashTable();
-    //     contactTable.insert('')
-    // });
+    beforeEach(function () {
+        contactTable = new HashTable();
+        contactTable.insert('Alaiya', '139-256-1253', 'alaiya@gmail.com');
+        contactTable.insert('Biscuit', '582-552-1258', 'biscuit@gmail.com');
+        contactTable.insert('Carson', '582-145-9632', 'carson@gmail.com');
+        contactTable.insert('Dolton', '621-525-5874', 'dolton@gmail.com');
+        contactTable.insert('Easton', '252-142-6324', 'easton@gmail.com');
+    });
 
-    // describe('resize', function () {
+    describe('resize', function () {
 
-    //     context('When the size of the hashtable exceeds 70%', function () {
+        context('When the size of the hashtable exceeds 70%', function () {
 
-    //         it('should reallocate the trees to a new array with a length that is double its previous', function () {
+            it('should reallocate the trees to a new array with a length that is double its previous', function () {
+                console.log(contactTable.data)
 
-    //         });
+                contactTable.insert('Fikerton', '238-414-2589', 'fikerton@gmail.com');
+                expect(contactTable.data.length).to.equal(16);
+                expect(contactTable.length).to.equal(6);
+                expect(contactTable.data[0]).to.equal(null);
+                expect(contactTable.data[1].name).to.equal("Alaiya");
+                expect(contactTable.data[6].name).to.equal("Fikerton");
+                expect(contactTable.data[15]).to.equal(null);
+            });
 
-    //     });
+        });
 
-    // });
+    });
 
 });
