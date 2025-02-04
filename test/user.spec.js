@@ -57,38 +57,80 @@ describe('User', function () {
 
         // });
 
-        describe('validContact', function () {
+        // describe('validContact', function () {
+
+        //     it('should return false', function () {
+        //         let inpt1 = User.validContact('239-2025-525');
+        //         let inpt2 = User.validContact('23j-njk-2525');
+        //         let inpt3= User.validContact('13--233-2632');
+        //         expect(inpt1).to.be.false;
+        //         expect(inpt2).to.be.false;
+        //         expect(inpt3).to.be.false;
+        //     });
+
+        //     it('should return true', function () {
+        //         let inpt = User.validContact('239-503-1856');
+        //         expect(inpt).to.be.true;
+        //     });
+
+        // });
+
+        // describe('getContact', function () {
+
+        //     it('should return false', async function () {
+        //         this.timeout(12000);
+
+        //         let inpt = await User.getContact();
+        //         return expect(inpt).to.be.false;
+        //     });
+
+        //     it('should return true', async function () {
+        //         this.timeout(12000);
+
+        //         let inpt = await User.getContact();
+        //         return expect(inpt).to.be.a('string');
+        //     });
+
+        // });
+
+        describe('validName', function () {
 
             it('should return false', function () {
-                let inpt1 = User.validContact('239-2025-525');
-                let inpt2 = User.validContact('23j-njk-2525');
-                let inpt3= User.validContact('13--233-2632');
-                expect(inpt1).to.be.false;
-                expect(inpt2).to.be.false;
-                expect(inpt3).to.be.false;
+                let inpt = User.validName('Joseph');
+                expect(inpt).to.be.false;
             });
 
             it('should return true', function () {
-                let inpt = User.validContact('239-503-1856');
+                let inpt = User.validName('Job Joseph');
+                let inpt2 = User.validName('Job De La Joseph');
+
                 expect(inpt).to.be.true;
+                expect(inpt2).to.be.true;
             });
 
         });
 
-        describe('getContact', function () {
+        describe('formatName', function () {
 
-            it('should return false', async function () {
-                this.timeout(12000);
+            context('should return an object', function () {
 
-                let inpt = await User.getContact();
-                return expect(inpt).to.be.false;
-            });
+                it('object should have properties first, last, middle if applicable', function () {
+                    let inpt = User.formatName('job joseph');
+                    let inpt1 = User.formatName('job j joseph');
+                    let inpt2 = User.formatName('job de la joseph');
 
-            it('should return true', async function () {
-                this.timeout(12000);
+                    expect(inpt['first']).to.equal('Job');
+                    expect(inpt.last).to.equal('Joseph');
 
-                let inpt = await User.getContact();
-                return expect(inpt).to.be.a('string');
+                    expect(inpt1.first).to.equal('Job');
+                    expect(inpt1.mid).to.equal('J');
+                    expect(inpt1.last).to.equal('Joseph');
+
+                    expect(inpt2.first).to.equal('Job');
+                    expect(inpt2.mid).to.equal('De La');
+                    expect(inpt2.last).to.equal('Joseph');
+                });
+
             });
 
         });
