@@ -23,3 +23,5 @@
         We need to create a BST for the buckets of the HashTable so sort and store the names.
     `User`
         We need to make a class that asks and check if the input is in the correct format
+    `Interface`
+        We need to make a class that resemble an interface for the user.
