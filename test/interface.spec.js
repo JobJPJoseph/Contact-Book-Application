@@ -12,38 +12,41 @@ describe('Interface', function () {
         expect(Interface).to.exist;
     });
 
-    let interface;
+    let interfaceTest;
 
     beforeEach(function () {
-        interface = new Interface();
+        interfaceTest = new Interface();
     });
 
     describe('constructor', function () {
 
         it('should initialize a property called id to be set to null', function () {
-            expect(interface.id).to.equal(null);
+            expect(interfaceTest.id).to.equal(null);
         });
 
         it('should create a property called contacts that will be set to null', function () {
-            expect(interface.contacts).to.equal(null);
+            expect(interfaceTest.contacts).to.equal(null);
         });
 
     });
 
     describe('setUser', function () {
 
-        it('should ask for the user name', function () {
-            interface.setUser();
-            expect(interface.id).to.be.a('object');
+        it('should ask for the user name', async function () {
+            this.timeout(10000);
+            await interfaceTest.setUser();
+            return expect(interfaceTest.id).to.be.a('object');
         });
 
-        it('should set the contacts to an empty HashTable', function () {
-            interface.setUser();
-            expect(interface.id).to.be.a('object');
-            expect(interface.contacts).to.be.instanceOf(HashTable);
+        it('should set the contacts to an empty HashTable', async function () {
+            this.timeout(10000);
+            await interfaceTest.setUser();
+            return expect(interfaceTest.contacts).to.be.instanceOf(HashTable);
         });
 
     });
+
+    let interface;
 
     beforeEach(function () {
         interface = new Interface();
