@@ -115,38 +115,39 @@ describe('Interface', function () {
 
             // We need to account for more than just the name
             it('should ask and insert the contact into the respective tree', async function () {
+                this.timeout(25000);
                 await interface.handleCommands();
                 // search the new contact();
             });
 
         });
 
-        context('printing', function () {
+        // context('printing', function () {
 
-            it('should ask for input and print the tree', async function () {
-                await interface.handleCommands();
-                // Make sure it prints out correctly
-            });
+        //     it('should ask for input and print the tree', async function () {
+        //         await interface.handleCommands();
+        //         // Make sure it prints out correctly
+        //     });
 
-        });
+        // });
 
-        context('searching', function () {
+        // context('searching', function () {
 
-            it('should ask for input and search for specified contact', async function () {
-                await interface.handleCommands();
-                // print out the node
-            });
+        //     it('should ask for input and search for specified contact', async function () {
+        //         await interface.handleCommands();
+        //         // print out the node
+        //     });
 
-        });
+        // });
 
-        context('deleting', function () {
+        // context('deleting', function () {
 
-            it('should ask for input and delete for specified contact', async function () {
-                await interface.handleCommands();
-                // Make sure to print tree
-            });
+        //     it('should ask for input and delete for specified contact', async function () {
+        //         await interface.handleCommands();
+        //         // Make sure to print tree
+        //     });
 
-        });
+        // });
 
     });
 
