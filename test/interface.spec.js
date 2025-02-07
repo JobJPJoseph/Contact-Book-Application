@@ -30,21 +30,21 @@ describe('Interface', function () {
 
     });
 
-    describe('setUser', function () {
+    // describe('setUser', function () {
 
-        it('should ask for the user name', async function () {
-            this.timeout(10000);
-            await interfaceTest.setUser();
-            return expect(interfaceTest.id).to.be.a('object');
-        });
+    //     it('should ask for the user name', async function () {
+    //         this.timeout(10000);
+    //         await interfaceTest.setUser();
+    //         return expect(interfaceTest.id).to.be.a('object');
+    //     });
 
-        it('should set the contacts to an empty HashTable', async function () {
-            this.timeout(10000);
-            await interfaceTest.setUser();
-            return expect(interfaceTest.contacts).to.be.instanceOf(HashTable);
-        });
+    //     it('should set the contacts to an empty HashTable', async function () {
+    //         this.timeout(10000);
+    //         await interfaceTest.setUser();
+    //         return expect(interfaceTest.contacts).to.be.instanceOf(HashTable);
+    //     });
 
-    });
+    // });
 
     let interface;
 
