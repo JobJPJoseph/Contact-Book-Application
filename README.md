@@ -1,19 +1,17 @@
 # Contact Book Application
 
 ## Concepts to Implement:
-    * Hash Tables:
-    * Binary Search Tree:
-    * Destructuring:
-    * Asychronousity (Promises/asyce-await):
-    * Mocha/Chai:
-    * Single Respondsibility Principle:
+    * Hash Tables: Done
+    * Binary Search Tree: Done
+    * Destructuring: Done
+    * Asychronousity (Promises/asyce-await): Done
+    * Mocha/Chai: Done
+    * Single Respondsibility Principle: Done
     * Custom Erros:
     * Handling Errors:
-    * ES6 syntax:
-    * Context (binding):
-    * Stacks and Queues:
-    * Caching:
-    * Optimization:
+    * ES6 syntax: Done
+    * Caching: Done
+    * Optimization: Done
 
 ### Tasks
     `Hash Table`
