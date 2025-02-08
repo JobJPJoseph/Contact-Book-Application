@@ -254,4 +254,40 @@ describe('Hash Table', function () {
 
     });
 
+    describe('delete', function () {
+
+        context('deleteByName', function () {
+
+            it('should remove the specified node from the tree', function () {
+                contactTable.deleteByName('Carson');
+                let node = contactTable.findContactByName('Carson');
+                expect(node).to.equal(null);
+            });
+
+        });
+
+        context('deleteByNumber', function () {
+
+            it(`should set the specified node's contact to null`, function () {
+                contactTable.deleteByContact('252-142-6323');
+                let node = contactTable.findContactByName('East');
+                expect(node.contact).to.equal(null);
+                expect(node.name).to.equal('East');
+            });
+
+        });
+
+        context('deleteByEmail', function () {
+
+            it(`should set the specified node's email to null`, function () {
+                contactTable.deleteByContact('alaiyas@gmail.com');
+                let node = contactTable.findContactByName('Alaiyas');
+                expect(node.email).to.equal(null);
+                expect(node.name).to.equal('Alaiyas');
+            });
+
+        });
+
+    });
+
 });
