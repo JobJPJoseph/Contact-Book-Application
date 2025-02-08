@@ -30,21 +30,21 @@ describe('Interface', function () {
 
     });
 
-    // describe('setUser', function () {
+    describe('setUser', function () {
 
-    //     it('should ask for the user name', async function () {
-    //         this.timeout(10000);
-    //         await interfaceTest.setUser();
-    //         return expect(interfaceTest.id).to.be.a('object');
-    //     });
+        it('should ask for the user name', async function () {
+            this.timeout(10000);
+            await interfaceTest.setUser();
+            return expect(interfaceTest.id).to.be.a('object');
+        });
 
-    //     it('should set the contacts to an empty HashTable', async function () {
-    //         this.timeout(10000);
-    //         await interfaceTest.setUser();
-    //         return expect(interfaceTest.contacts).to.be.instanceOf(HashTable);
-    //     });
+        it('should set the contacts to an empty HashTable', async function () {
+            this.timeout(10000);
+            await interfaceTest.setUser();
+            return expect(interfaceTest.contacts).to.be.instanceOf(HashTable);
+        });
 
-    // });
+    });
 
     let interface;
 
@@ -111,44 +111,46 @@ describe('Interface', function () {
 
     describe('handleCommands', function () {
 
-        // context('insertion', function () {
+        context('insertion', function () {
 
-        //     // We need to account for more than just the name
-        //     it('should ask and insert the contact into the respective tree', async function () {
-        //         this.timeout(25000);
-        //         await interface.handleCommands();
-        //         // search the new contact();
-        //     });
+            // We need to account for more than just the name
+            it('should ask and insert the contact into the respective tree', async function () {
+                this.timeout(25000);
+                await interface.handleCommands();
+                // search the new contact();
+            });
 
-        // });
+        });
 
-        // context('printing', function () {
+        context('printing', function () {
 
-        //     it('should ask for input and print the tree', async function () {
-        //         this.timeout(25000);
-        //         await interface.handleCommands();
-        //         // Make sure it prints out correctly
-        //     });
+            it('should ask for input and print the tree', async function () {
+                this.timeout(25000);
+                await interface.handleCommands();
+                // Make sure it prints out correctly
+            });
 
-        // });
+        });
 
         context('searching', function () {
 
             it('should ask for input and search for specified contact', async function () {
+                this.timeout(25000);
                 await interface.handleCommands();
                 // print out the node
             });
 
         });
 
-        // context('deleting', function () {
+        context('deleting', function () {
 
-        //     it('should ask for input and delete for specified contact', async function () {
-        //         await interface.handleCommands();
-        //         // Make sure to print tree
-        //     });
+            it('should ask for input and delete for specified contact', async function () {
+                this.timeout(25000);
+                await interface.handleCommands();
+                // Make sure to print tree
+            });
 
-        // });
+        });
 
     });
 
